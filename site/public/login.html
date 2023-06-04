@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/style/login.css">
+    <title>Champions Stats</title>
+</head>
+<body>
+</div>
+
+    <div class="header">
+        <div class="container">
+            <a href="#home"><img class="logo" src="../public/assets/logoucl.png"></a>
+            <ul class="navbar">
+                <li class="pg"><a href="index.html">Home</a></li>
+                <li>|</li>
+                <li class="pg"><a href="">História</a></li>
+                <li>|</li>
+                <li class="pg"><a href="">Times Campeões</a></li>
+                <li>|</li>
+                <li class="pg"><a href="login.html">Login</a></li>
+                <li>|</li>
+                <li class="pg"><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div> <br><br><br><br>
+        <div  id="caixaPai" class="caixa_login">
+            <form>
+                <h1>Entrar</h1>
+                <div class="sub_container">
+                <label for="input_email">Email</label>
+                <input id="input_email" id="input_email" placeholder="  champions.league@ucl.com">
+                <br>
+                <label for="input_senha">Senha</label>
+                <input id="input_senha" type="text" id="input_senha" placeholder="************">
+            </div>
+            <br>
+            <button onclick="entrar()" type="button" id="botao">INICIAR</button>
+            <p class="frase_final">Sem login? Realize seu <a id="cadastrar_palavra" href="cadastro.html">Cadastro!</a></p>
+            </form>
+        </div> <br><br><br><br><br><br><br><br><br>
+
+        <div class="footer">
+            <div class="container">
+              <h2>Feito com amor por aluno &hearts; SPTech &copy; 2023</h2>
+              <span class="version"></span>
+            </div>
+          </div>
+         </body>
+
+         <script>
+            function entrar() {
+        
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('Preencha todos os campos')
+        }
+        else {
+            
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+
+                    /* TEM QUE ESTAR IGUAL AS COLUNAS DO BANCO */
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.VP = json.VP;
+
+                    setTimeout(function () {
+                        window.location.assign("sobre.html")
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);                    
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })  
+    }
+    }
+  </script>

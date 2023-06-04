@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  background-color: #061da5;
+  border-bottom: 3px solid black;
+}
+
+.container {
+  display:flex;
+  width: 80%;
+}
+
+.logo {
+display: flex;
+align-items: center;
+width: 140px;
+height: 80px;
+margin-bottom: 5px;
+}
+
+.header .container {
+  justify-content: space-between;
+}
+
+.navbar {
+  display:flex;
+  width: 600px;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.navbar li, .navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.banner {
+  background-image: url('../assets/wallpaperChampions.jpg');
+  background-size: cover;
+}
+
+.banner .container {
+  height: 800px;
+}
+
+h1 {
+  align-items: center;
+  font-size: 35px;
+  color: white;
+}
+
+.banner p {
+  width: 800px;
+  font-size: 22px;
+  font-family: monospace;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner video {
+  width: 100%;
+  height: 55%;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg a {
+text-decoration: none;
+color: white;
+font-size: 18px;
+font-family: 'League Spartan', sans-serif;
+transition: all .4s ease-in-out;
+cursor: pointer;
+}
+
+.pg a:hover{
+color: black;
+padding: 5px 10px;
+background-color: var blue;
+border-radius: 8px;
+transition: 250ms;
+} 
+
+.footer {
+  height: 65px;
+  width: 100%;
+  background-color: #061da5;
+  color: white;
+}
+
+.footer h2 {
+  margin: 0;
+}
+
+.footer .container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer .container .version {
+  font-size: 30px;
+  font-weight: 800;
+}

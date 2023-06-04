@@ -1,0 +1,108 @@
+body {
+    padding: 0;
+  }
+  
+  .header{
+    background-color: #061da5;
+    border-bottom: 3px solid black;
+  }
+  
+  .container {
+    display:flex;
+    width: 80%;
+  }
+  
+  .logo {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  height: 80px;
+  margin-bottom: 5px;
+  }
+  
+  .header .container {
+    justify-content: space-between;
+  }
+
+  .navbar {
+    display:flex;
+    width: 600px;
+    align-items: center;
+    list-style: none;
+    justify-content: space-around;
+  }
+  
+  .navbar li, .navbar a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .banner {
+    background-image: url('../assets/logoucl.png');
+    background-size: cover;
+  }
+  
+  .banner .container {
+    height: 800px;
+    justify-content: center;
+    align-items: self-start;
+  }
+  
+  .banner p {
+    width: 800px;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .pg a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-family: 'League Spartan', sans-serif;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  }
+  
+  .pg a:hover{
+  color: black;
+  padding: 5px 10px;
+  background-color: var blue;
+  border-radius: 8px;
+  transition: 250ms;
+  }
+
+  #times-campeoes {
+    text-align: center;
+    background-image: url(../assets/agrvai.jpg);
+  }
+  
+  #times-campeoes ul {
+    list-style-type: none;
+    align-items: center;
+  }
+  
+  .time-campeao {
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .nome-time {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  #trajetoria {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  #imagem-trajetoria img {
+    max-width: 300px;
+  }
+  
+  #descricao-trajetoria {
+    margin-top: 20px;
+    text-align: left;
+  }
+  

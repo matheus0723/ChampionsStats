@@ -1,0 +1,96 @@
+body {
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header{
+    background-color: #061da5;
+    border-bottom: 3px solid black;
+  }
+  
+  .container {
+    display:flex;
+    width: 80%;
+  }
+  
+  .logo {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  height: 80px;
+  margin-bottom: 5px;
+  }
+  
+  .header .container {
+    justify-content: space-between;
+  }
+
+  .navbar {
+    display:flex;
+    width: 600px;
+    align-items: center;
+    list-style: none;
+    justify-content: space-around;
+  }
+  
+  .navbar li, .navbar a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .banner {
+    background-image: url('../assets/logoucl.png');
+    background-size: cover;
+  }
+  
+  .banner .container {
+    height: 800px;
+    justify-content: center;
+    align-items: self-start;
+  }
+  
+  .banner p {
+    width: 800px;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .pg a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-family: 'League Spartan', sans-serif;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  }
+  
+  .pg a:hover{
+  color: black;
+  padding: 5px 10px;
+  background-color: var blue;
+  border-radius: 8px;
+  transition: 250ms;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  #votacao, #grafico {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  #jogadores {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  #graficoJogadores {
+    width: 400px;
+  }
+  

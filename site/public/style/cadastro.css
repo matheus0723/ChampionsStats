@@ -1,0 +1,230 @@
+body{
+  padding: 0;
+  margin: 0;
+  background-image: url(../assets/fundoCadastro.jpg);
+  transition: 1s;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+} 
+
+.header{
+  background-color: #061da5;
+  border-bottom: 3px solid black;
+}
+
+.container {
+  display:flex;
+  width: 80%;
+}
+
+.logo {
+display: flex;
+align-items: center;
+width: 130px;
+height: 80px;
+margin-bottom: 8px;
+}
+
+.header .container {
+  justify-content: space-between;
+}
+
+.navbar {
+  display:flex;
+  width: 600px;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.navbar li, .navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.banner {
+  background-image: url('../assets/logoucl.png');
+  background-size: cover;
+}
+
+.banner .container {
+  height: 800px;
+  justify-content: center;
+  align-items: self-start;
+}
+
+.banner p {
+  width: 800px;
+  font-size: 30px;
+  color: white;
+}
+
+.pg a {
+text-decoration: none;
+color: white;
+font-size: 18px;
+font-family: 'League Spartan', sans-serif;
+transition: all .4s ease-in-out;
+cursor: pointer;
+}
+
+.pg a:hover{
+color: black;
+padding: 5px 10px;
+background-color: var blue;
+border-radius: 8px;
+transition: 250ms;
+}
+
+  .container_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.caixa_cadastro{
+  width: 27vw;
+  height: 75vh;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: rgba(0, 0, 0, 0.74);
+  border: 3px solid #00ccff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: #00ccff 10px 5px 40px 7px, #00aeff -10px -2px 20px 2px;
+  transition: 1s;
+}
+
+.sub_container{
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+
+
+.caixa_cadastro h1{
+  font-family: monospace;
+  color: #ffffff;
+  margin-bottom: 6%;
+}
+
+form{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #000ba1;
+}
+
+input {
+  width: 67%;
+  height: 15.5%;
+  border: 3px solid #000ba1;
+  border-radius: 10px;
+  color: #000ba1;
+  outline: 0;
+  font-weight: bold;
+  padding-left: 5%;
+  transition: 1s;
+}
+
+
+label {
+  color: white;
+  margin-bottom:3.5%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: monospace;
+  transition: 1s;
+}
+
+
+
+#input_email::placeholder {
+  color: #000000;
+  padding: 11%;    
+}
+
+#input_senha::placeholder {
+  color: #000000;
+  padding: 35%;
+}
+
+#input_confSenha::placeholder {
+  color: #000000;
+  padding: 35%;
+}
+
+.logoChampions{
+  position: absolute;
+  width: 8.5%;
+  left: 16%;
+  top:3%;
+
+}
+
+
+
+button {
+ 
+  transition: 0.5s;
+  width: 55%;
+  height: 8%;
+  margin-top: 3%;
+  background-color: #000ba1;
+  color: white;
+  font-family: monospace;
+  transform: scale(1.1);
+  border: #00ccff solid 2px;
+  box-shadow: 3px 3px 30px 5px #00aeff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#botao:hover{
+  transition:1s;
+  border-radius: 50px;
+  transform: scale(1.1);
+  font-family: monospace;
+  
+}
+
+a{
+  
+    color: #bbbbbb;  
+  
+}
+
+testes{
+  color: #b6b6b6;
+  color: #1f7cff;
+}
+
+.footer {
+  height: 65px;
+  width: 100%;
+  background-color: #061da5;
+  color: white;
+}
+
+.footer h2 {
+  margin: 0;
+}
+
+.footer .container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
