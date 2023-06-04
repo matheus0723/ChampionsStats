@@ -1,2 +1,2 @@
-# ChapionsStats
+# ChampionsStats
 projeto-individual-sptech
