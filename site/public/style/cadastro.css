@@ -87,7 +87,7 @@ transition: 250ms;
 .caixa_cadastro{
   width: 27vw;
   height: 75vh;
-  margin-top: 3%;
+  margin-top: -11%;
   margin-bottom: 3%;
   background-color: rgba(0, 0, 0, 0.74);
   border: 3px solid #00ccff;

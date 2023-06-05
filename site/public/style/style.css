@@ -92,6 +92,7 @@ transition: 250ms;
   width: 100%;
   background-color: #061da5;
   color: white;
+  text-align: center;
 }
 
 .footer h2 {

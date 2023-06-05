@@ -1,5 +1,6 @@
 body {
     padding: 0;
+    margin: 0;
   }
   
   .header{
@@ -73,7 +74,7 @@ body {
 
   #times-campeoes {
     text-align: center;
-    background-image: url(../assets/agrvai.jpg);
+    background-color: pink;
   }
   
   #times-campeoes ul {

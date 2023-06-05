@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/style/cadastro.css">
+    <link rel="stylesheet" href="style/cadastro.css">
     <title>Champions Stats</title>
 </head>
 
 <body>
     <div class="header">
         <div class="container">
-            <a href="#home"><img class="logo" src="../public/assets/logoucl.png"></a>
+            <a href="#home"><img class="logo" src="assets/logoucl.png"></a>
             <ul class="navbar">
                 <li class="pg"><a href="index.html">Home</a></li>
                 <li>|</li>
@@ -49,7 +49,7 @@
                 <input id="input_confSenha" type="text" id="input_confSenha" placeholder="************">
             </div>
             <br><br><br>
-            <button onclick="cadastrar()" type="button" id="botao">INICIAR</button>
+            <button onclick="cadastrar()" type="button" id="botao">CADASTRAR</button>
         </form>
     </div>
 </div>
@@ -99,7 +99,6 @@
                         sessionStorage.EMAIL_USUARIO = json.email;
                         sessionStorage.NOME_USUARIO = json.nomeUsuario;
                         sessionStorage.ID_USUARIO = json.idUsuario;
-                        sessionStorage.VP = json.VP;
 
                         setTimeout(function () {
                             window.location.assign("sobre.html")
