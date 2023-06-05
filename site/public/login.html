@@ -53,10 +53,10 @@
          <script>
             function entrar() {
         
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (email == "" || senha == "") {
             alert('Preencha todos os campos')
         }
         else {
@@ -67,8 +67,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                emailServer: email,
+                senhaServer: senha
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")

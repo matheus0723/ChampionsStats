@@ -74,9 +74,10 @@ body {
 
   #times-campeoes {
     text-align: center;
-    background-color: pink;
+    background-image: url(../assets/agrvai.jpg);
   }
   
+  /*rgb(198, 198, 240)*/
   #times-campeoes ul {
     list-style-type: none;
     align-items: center;

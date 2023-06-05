@@ -66,11 +66,11 @@
 <script>
     function cadastrar() {
         var nome = input_nome.value;
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
         var confSenha = input_confSenha.value;
 
-        if (email == "" || senha == "") {
+        if (nome == "" || email == "" || senha == "" || confSenha == "" ) {
             alert('Preencha todos os campos')
         }
         else {
@@ -81,6 +81,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
+                    nomeServer: nome,
                     emailServer: email,
                     senhaServer: senha
                 })
@@ -96,9 +97,9 @@
 
 
                         /* TEM QUE ESTAR IGUAL AS COLUNAS DO BANCO */
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nomeUsuario;
-                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        sessionStorage.idUsuario = json.idUsuario;
+                        sessionStorage.nome = json.nomeUsuario;
+                        sessionStorage.email = json.email;
 
                         setTimeout(function () {
                             window.location.assign("sobre.html")
