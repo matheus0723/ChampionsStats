@@ -75,7 +75,7 @@
         }
         else {
 
-            fetch("/usuarios/autenticar", {
+            fetch("/usuarios/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -102,7 +102,7 @@
                         sessionStorage.email = json.email;
 
                         setTimeout(function () {
-                            window.location.assign("sobre.html")
+                            window.location.assign("login.html")
                         }, 1000); // apenas para exibir o loading
 
                     });

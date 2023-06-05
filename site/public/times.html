@@ -108,16 +108,17 @@
             <span class="nome-time">Steaua Bucareste</span>
           </li>
           <li class="time-campeao" data-time="Olympique de Marselha">
-            <img src="../assets/Olympique_Marseille.png" alt="Olympique de Marselha" height="100px" width="100px">
+            <img onclick="visualizarTimeCampeao('../assets/Olympique_Marseille.png')" src="../assets/Olympique_Marseille.png" alt="Olympique de Marselha" height="100px" width="100px">
             <span class="nome-time">Olympique de Marselha</span>
           </li>
           <li class="time-campeao" data-time="Borussia Dortmund">
-            <img src="../assets/bvb.png" alt="Borussia Dortmund" height="100px" width="100px">
+            <img onclick="visualizarTimeCampeao('../assets/bvb.png')" src="../assets/bvb.png" alt="Borussia Dortmund" height="100px" width="100px">
             <span class="nome-time">Borussia Dortmund</span>
           </li>
           <!-- Adicionando times campeões -->
         </ul>
       </div>
+      <div id="divDescTime"></div>
     
       <div id="trajetoria">
         <h2>Tradição na Champions</h2>
@@ -128,6 +129,9 @@
 </html>
 
 <script>
+  function visualizarTimeCampeao(imagemTime) {
+    divDescTime.innerHTML = `<img src='${imagemTime}'> `
+  }
     var timesCampeoes = document.getElementsByClassName ("time-campeao");
 
 for (var i = 0; i < timesCampeoes.length; i++) {
