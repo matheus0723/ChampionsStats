@@ -3,6 +3,7 @@
 <head>
   <title><title>ChampionsStats | Times Campeões</title></title>
   <link rel="stylesheet" type="text/css" href="style/dash.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="header">
@@ -21,16 +22,16 @@
         </ul>
     </div>
     </div>
-  <h1>Dashboard da Champions League - Melhores Jogadores</h1>
+  <h1>Dashboard da Champions League - Craque da temporada</h1>
 
   <div id="votacao">
-    <h2>Vote nos 5 melhores jogadores:</h2>
+    <h2>Vote no jogador que você acha que foi o melhor dessa temporada:</h2>
     <ul id="jogadores">
-      <li><input type="checkbox" id="jogador1" value="Haaland"> <label for="jogador1">Messi</label></li>
-      <li><input type="checkbox" id="jogador2" value="Vinicius Juinor"> <label for="jogador2">Ronaldo</label></li>
-      <li><input type="checkbox" id="jogador3" value="De Bruyne"> <label for="jogador3">Neymar</label></li>
-      <li><input type="checkbox" id="jogador4" value="Lautaro Martinez"> <label for="jogador4">Mbappe</label></li>
-      <li><input type="checkbox" id="jogador5" value="Maignan"> <label for="jogador5">Salah</label></li>
+      <li><input type="checkbox" id="jogador1" value="Haaland"> <label for="jogador1">Haaland</label></li>
+      <li><input type="checkbox" id="jogador2" value="Vinicius Junior"> <label for="jogador2">Vinicius Junior</label></li>
+      <li><input type="checkbox" id="jogador3" value="De Bruyne"> <label for="jogador3">De Bruyne</label></li>
+      <li><input type="checkbox" id="jogador4" value="Lautaro Martinez"> <label for="jogador4">Lautaro Martínez</label></li>
+      <li><input type="checkbox" id="jogador5" value="Maignan"> <label for="jogador5">Maignan</label></li>
     </ul>
     <button id="votar" onclick="votar()">Votar</button>
   </div>

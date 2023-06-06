@@ -1,6 +1,7 @@
 body {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    background-color: salmon;
   }
   
   .header{
@@ -24,7 +25,7 @@ body {
   .header .container {
     justify-content: space-between;
   }
-
+  
   .navbar {
     display:flex;
     width: 600px;
@@ -39,20 +40,28 @@ body {
   }
   
   .banner {
-    background-image: url('../assets/logoucl.png');
+    background-image: url('../assets/wallpaperChampions.jpg');
     background-size: cover;
   }
   
   .banner .container {
     height: 800px;
-    justify-content: center;
-    align-items: self-start;
+  }
+  
+  h1 {
+    align-items: center;
+    font-size: 35px;
+    color: white;
   }
   
   .banner p {
     width: 800px;
-    font-size: 30px;
-    color: white;
+    font-size: 22px;
+    font-family: monospace;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   .pg a {
@@ -65,55 +74,28 @@ body {
   }
   
   .pg a:hover{
-  color: black;
+  color: rgb(75, 42, 42);
   padding: 5px 10px;
   background-color: var blue;
   border-radius: 8px;
   transition: 250ms;
-  }
+  } 
 
-  #times-campeoes {
+  .caixa_introducao{
     text-align: center;
-    background-image: url(../assets/agrvai.jpg);
-    margin: 0%;
-  }
-  
-  /*rgb(198, 198, 240)*/
-  #times-campeoes ul {
-    list-style-type: none;
-    align-items: center;
-  }
-  
-  .time-campeao {
-    display: inline-block;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .nome-time {
-    text-align: center;
-    background-color: rgb(134, 134, 202);
-    width: 96%;
-    height: 30%;
-    margin-top: 15%;
-    border: 2px solid purple;
-    margin-left: 1.8%;
+    background-color: black;
+    width: 70%;
+    height: 70%;
+    margin-top: 10%;
+    border: 2px solid #061da5;
+    margin-left: 0%;
     border-radius: 15px;
-    display: block;
-    margin-top: 5px;
-  }
-  
-  #trajetoria {
-    margin-top: 50px;
-    text-align: center;
-  }
-  
-  #imagem-trajetoria img {
-    max-width: 300px;
-  }
-  
-  #descricao-trajetoria {
-    margin-top: 20px;
-    text-align: left;
-  }
-  
+}
+
+#opacityx p{
+    margin-top: 1%;
+    font-family: 'DINNextW05-Medium';
+    font-size: 35px;
+    text-shadow: #061da5 2px 2px 2px;
+    
+}
