@@ -1,4 +1,4 @@
-var medidaModel = require("../models/medidaModel");
+var votoModel = require("../models/votoModel");
 
 function buscarUltimasMedidas(req, res) {
 
@@ -8,7 +8,7 @@ function buscarUltimasMedidas(req, res) {
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    votoModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -28,7 +28,28 @@ function buscarMedidasEmTempoReal(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    votoModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function criar(req, res) {
+
+    var idUsuario = req.body.idUsuario;
+    var idJogador = req.body.idJogador;
+    console.log(idUsuario, idJogador)
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    votoModel.criar(idUsuario, idJogador).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +63,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarUltimasMedidas,
+    criar,
     buscarMedidasEmTempoReal
 
 }

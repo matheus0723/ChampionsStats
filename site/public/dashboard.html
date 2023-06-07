@@ -47,6 +47,11 @@
 <script>
     var jogadoresSelecionados = [];
 var votacaoRealizada = false;
+var jogadores = [{nome: 'Haaland', id:1},
+                {nome: 'Vinicius Junior', id:2},
+                {nome: 'De Bruyne', id:3},
+                {nome: 'Lautaro Martínez', id:4},
+                {nome: 'Maignan', id:5},];
 
 function votar() {
   if (votacaoRealizada) {
@@ -64,6 +69,27 @@ function votar() {
   jogadoresSelecionados = Array.from(checkboxes).map(function(checkbox) {
     return checkbox.value;
   });
+
+  var idJogador;
+
+  for(var i = 0;
+  i < jogadores.length;
+  i++) {
+    if(jogadoresSelecionados == jogadores[i].nome) {
+      idJogador = jogadores[i].id
+    }
+  } 
+
+  fetch("/votos/criar", {
+    method: "POST",
+    headers: {
+                    "Content-Type": "application/json"
+                },
+    body: JSON.stringify({
+      idUsuario: sessionStorage.ID_USUARIO, 
+      idJogador
+    })
+  })
 
   votacaoRealizada = true;
   exibirGrafico();
