@@ -14,4 +14,9 @@ router.get("/tempo-real/:idAquario", function (req, res) {
 router.post("/criar", function (req, res) {
     votoController.criar(req, res);
 })
+
+router.get("/votos", function (req, res) {
+    votoController.listar(req, res);
+})
+
 module.exports = router;

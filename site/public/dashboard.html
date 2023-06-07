@@ -1,148 +1,229 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title><title>ChampionsStats | Times Campeões</title></title>
+  <title>
+    <title>ChampionsStats | Times Campeões</title>
+  </title>
   <link rel="stylesheet" type="text/css" href="style/dash.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <div class="header">
+  <div class="header">
     <div class="container">
-        <a href="#home"><img class="logo" src="assets/logoucl.png"></a>
-        <ul class="navbar">
-            <li class="pg"><a href="index.html">Home</a></li>
-            <li>|</li>
-            <li class="pg"><a href="">Votação</a></li>
-            <li>|</li>
-            <li class="pg"><a href="">Times Campeões</a></li>
-            <li>|</li>
-            <li class="pg"><a href="login.html">Login</a></li>
-            <li>|</li>
-            <li class="pg"><a href="cadastro.html">Cadastro</a></li>
-        </ul>
+      <a href="#home"><img class="logo" src="assets/logoucl.png"></a>
+      <ul class="navbar">
+        <li class="pg"><a href="index.html">Home</a></li>
+        <li>|</li>
+        <li class="pg"><a href="">Votação</a></li>
+        <li>|</li>
+        <li class="pg"><a href="">Times Campeões</a></li>
+        <li>|</li>
+        <li class="pg"><a href="login.html">Login</a></li>
+        <li>|</li>
+        <li class="pg"><a href="cadastro.html">Cadastro</a></li>
+      </ul>
     </div>
-    </div>
+  </div>
   <h1>Dashboard da Champions League - Craque da temporada</h1>
 
   <div id="votacao">
     <h2>Vote no jogador que você acha que foi o melhor dessa temporada:</h2>
     <ul id="jogadores">
       <li><input type="checkbox" id="jogador1" value="Haaland"> <label for="jogador1">Haaland</label></li>
-      <li><input type="checkbox" id="jogador2" value="Vinicius Junior"> <label for="jogador2">Vinicius Junior</label></li>
-      <li><input type="checkbox" id="jogador3" value="De Bruyne"> <label for="jogador3">De Bruyne</label></li>
-      <li><input type="checkbox" id="jogador4" value="Lautaro Martinez"> <label for="jogador4">Lautaro Martínez</label></li>
-      <li><input type="checkbox" id="jogador5" value="Maignan"> <label for="jogador5">Maignan</label></li>
+      <li><input type="checkbox" id="jogador2" value="Vinicius Junior"> <label for="jogador2">Vinicius Junior</label>
+      </li>
+      <li><input type="checkbox" id="jogador3" value="Maignan"> <label for="jogador3">Maignan</label></li>
+      <li><input type="checkbox" id="jogador4" value="De Bruyne"> <label for="jogador4">De Bruyne</label></li>
+      <li><input type="checkbox" id="jogador5" value="Lautaro Martinez"> <label for="jogador5">Lautaro Martínez</label>
+      </li>
     </ul>
     <button id="votar" onclick="votar()">Votar</button>
   </div>
 
-  <div id="grafico">
+  <div id="grafico" style="width: 700px;height: 700px;">
     <h2>Resultado da votação:</h2>
     <canvas id="graficoJogadores"></canvas>
   </div>
-  
+
 </body>
+
 </html>
 
 <script>
-    var jogadoresSelecionados = [];
-var votacaoRealizada = false;
-var jogadores = [{nome: 'Haaland', id:1},
-                {nome: 'Vinicius Junior', id:2},
-                {nome: 'De Bruyne', id:3},
-                {nome: 'Lautaro Martínez', id:4},
-                {nome: 'Maignan', id:5},];
 
-function votar() {
-  if (votacaoRealizada) {
-    alert("Você já realizou sua votação.");
-    return;
-  }
 
-  var checkboxes = document.querySelectorAll("#jogadores input[type='checkbox']:checked");
+  // Função que mostra as informações do banco de dados no gráfico.
+  buscarValores()
 
-  if (checkboxes.length !== 1) {
-    alert("Selecione apenas 1 jogador.");
-    return;
-  }
+  var jogadoresSelecionados = [];
+  var votacaoRealizada = false;
+  var jogadores = [
+    { nome: 'Haaland', id: 1 },
+    { nome: 'Vinicius Junior', id: 2 },
+    { nome: 'De Bruyne', id: 3 },
+    { nome: 'Lautaro Martínez', id: 4 },
+    { nome: 'Maignan', id: 5 },
+  ];
 
-  jogadoresSelecionados = Array.from(checkboxes).map(function(checkbox) {
-    return checkbox.value;
-  });
+  function votar() {
 
-  var idJogador;
-
-  for(var i = 0;
-  i < jogadores.length;
-  i++) {
-    if(jogadoresSelecionados == jogadores[i].nome) {
-      idJogador = jogadores[i].id
+    if (votacaoRealizada) {
+      alert("Você já realizou sua votação.");
+      return;
     }
-  } 
 
-  fetch("/votos/criar", {
-    method: "POST",
-    headers: {
-                    "Content-Type": "application/json"
-                },
-    body: JSON.stringify({
-      idUsuario: sessionStorage.ID_USUARIO, 
-      idJogador
-    })
-  })
+    var checkboxes = document.querySelectorAll("#jogadores input[type='checkbox']:checked");
 
-  votacaoRealizada = true;
-  exibirGrafico();
-}
-
-function exibirGrafico() {
-  var ctx = document.getElementById("graficoJogadores").getContext("2d");
-  var jogadoresVotados = {};
-  var dadosGrafico = {
-    labels: [],
-    datasets: [{
-      data: [],
-      backgroundColor: []
-    }]
-  };
-
-  jogadoresSelecionados.forEach(function(jogador) {
-    if (!jogadoresVotados[jogador]) {
-      jogadoresVotados[jogador] = 1;
-    } else {
-      jogadoresVotados[jogador]++;
+    if (checkboxes.length !== 1) {
+      alert("Selecione apenas 1 jogador.");
+      return;
     }
-  });
 
-  for (var jogador in jogadoresVotados) {
-    dadosGrafico.labels.push(jogador);
-    dadosGrafico.datasets[0].data.push(jogadoresVotados[jogador]);
-    dadosGrafico.datasets[0].backgroundColor.push(getRandomColor());
-  }
+    jogadoresSelecionados = Array.from(checkboxes).map(function (checkbox) {
+      return checkbox.value;
+    });
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: dadosGrafico,
-    options: {
-      legend: { display: false },
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
+    var idJogador;
+
+    for (var i = 0;
+      i < jogadores.length;
+      i++) {
+      if (jogadoresSelecionados == jogadores[i].nome) {
+        idJogador = jogadores[i].id
       }
     }
-  });
-}
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+    fetch("/votos/criar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        idUsuario: sessionStorage.ID_USUARIO,
+        idJogador
+      })
+    })
+
+    votacaoRealizada = true;
+    location.reload()
   }
-  return color;
-}
+
+  function getRandomColor() {
+
+    const caracteres = "0123456789ABCDEF";
+    let cor = "#";
+    for (let i = 0; i < 6; i++) {
+      cor += caracteres[Math.floor(Math.random() * 16)];
+    }
+    return cor;
+
+  }
+
+  function exibirGrafico(labels, data, colors) {
+
+    var ctx = document.getElementById("graficoJogadores").getContext("2d");
+    var jogadoresVotados = {};
+
+    var dadosGrafico = {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: colors
+      }]
+    };
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: dadosGrafico,
+      options: {
+        legend: { display: false },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  function buscarValores() {
+
+    fetch("/votos/votos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(response => response.json())
+      .then(json => {
+
+        jogares = json.map(x => x.jogador)
+        votos = json.map(x => x.votos)
+        colors = []
+
+        for (let i = 0; i <= jogares.length; i++) {
+          colors.push(getRandomColor())
+        }
+
+        exibirGrafico(jogares, votos, colors)
+
+      })
+
+  }
+
+
+  // function exibirGrafico() {
+
+  //   var ctx = document.getElementById("graficoJogadores").getContext("2d");
+  //   var jogadoresVotados = {};
+  //   var dadosGrafico = {
+  //     labels: [],
+  //     datasets: [{
+  //       data: [],
+  //       backgroundColor: []
+  //     }]
+  //   };
+
+  //   jogadoresSelecionados.forEach(function (jogador) {
+  //     if (!jogadoresVotados[jogador]) {
+  //       jogadoresVotados[jogador] = 1;
+  //     } else {
+  //       jogadoresVotados[jogador]++;
+  //     }
+  //   });
+
+  //   for (var jogador in jogadoresVotados) {
+  //     dadosGrafico.labels.push(jogador);
+  //     dadosGrafico.datasets[0].data.push(jogadoresVotados[jogador]);
+  //     dadosGrafico.datasets[0].backgroundColor.push(getRandomColor());
+  //   }
+
+  //   new Chart(ctx, {
+  //     type: 'bar',
+  //     data: dadosGrafico,
+  //     options: {
+  //       legend: { display: false },
+  //       scales: {
+  //         yAxes: [{
+  //           ticks: {
+  //             beginAtZero: true
+  //           }
+  //         }]
+  //       }
+  //     }
+  //   });
+  // }
+
+  // function getRandomColor() {
+  //   var letters = '0123456789ABCDEF';
+  //   var color = '#';
+  //   for (var i = 0; i < 6; i++) {
+  //     color += letters[Math.floor(Math.random() * 16)];
+  //   }
+  //   return color;
+  // }
 
 </script>

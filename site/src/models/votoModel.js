@@ -40,8 +40,35 @@ function criar(idUsuario, idJogador) {
     return database.executar(instrucaoSql);
 }
 
+function listar() {
+
+    instrucaoSql = `
+
+        SELECT 
+                jog.nome          AS 'jogador'
+            ,	sum(jog.qtdVotos) AS 'votos'
+                
+        FROM	resultadoVotacao AS rv
+
+        INNER
+        JOIN	usuario as usu
+        on		rv.fkUsuario = usu.idUsuario
+
+        INNER
+        JOIN	jogador as jog
+        on		rv.fkjogador = jog.idJogador
+
+        GROUP
+        BY		jog.nome;
+
+    `
+
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     buscarUltimasMedidas,
-    criar
+    criar,
+    listar
 }
