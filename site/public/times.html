@@ -14,6 +14,8 @@
             <ul class="navbar">
                 <li class="pg"><a href="index.html">Home</a></li>
                 <li>|</li>
+                <li class="pg"><a href="historia.html">História</a></li>
+                <li>|</li>
                 <li class="pg"><a href="dashboard.html">Votação</a></li>
                 <li>|</li>
                 <li class="pg"><a href="">Times Campeões</a></li>
@@ -118,38 +120,3 @@
           <!-- Adicionando times campeões -->
         </ul>
       </div>
-      <div id="divDescTime"></div>
-    
-      <div id="trajetoria">
-        <h2>Tradição na Champions</h2>
-        <div id="imagem-trajetoria"></div>
-        <div id="descricao-trajetoria"></div>
-      </div>
-</body>
-</html>
-
-<script>
-  function visualizarTimeCampeao(imagemTime) {
-    divDescTime.innerHTML = `<img src='${imagemTime}'> `
-  }
-    var timesCampeoes = document.getElementsByClassName ("time-campeao");
-
-for (var i = 0; i < timesCampeoes.length; i++) {
-  timesCampeoes[i].addEventListener("click", function() {
-    var nomeTime = this.getAttribute("data-time");
-    var imagemTrajetoria = "caminho/para/imagem-" + nomeTime + ".jpg";
-    var descricaoTrajetoria = "Descrição da trajetória do " + nomeTime + " até o título.";
-
-    exibirTrajetoria(imagemTrajetoria, descricaoTrajetoria);
-  });
-}
-
-function exibirTrajetoria(imagem, descricao) {
-  var imagemTrajetoriaDiv = document.getElementById("imagem-trajetoria");
-  var descricaoTrajetoriaDiv = document.getElementById("descricao-trajetoria");
-
-  imagemTrajetoriaDiv.innerHTML = "<img src='" + imagem + "' alt='Trajetória'>";
-  descricaoTrajetoriaDiv.textContent = descricao;
-}
-
-</script>

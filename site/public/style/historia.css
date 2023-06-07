@@ -1,6 +1,8 @@
 body {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: salmon;
   }
   
   .header{
@@ -24,7 +26,7 @@ body {
   .header .container {
     justify-content: space-between;
   }
-
+  
   .navbar {
     display:flex;
     width: 600px;
@@ -71,37 +73,20 @@ body {
   border-radius: 8px;
   transition: 250ms;
   }
-  h2 {
-    color: white;
+
+  h1 {
+    text-align: center;
   }
 
-  #times-campeoes {
-    text-align: center;
-    background-image: url(../assets/agrvai.jpg);
-    margin: 0%;
+  h2 {
+    margin-top: 50px;
   }
-  
-  /*rgb(198, 198, 240)*/
-  #times-campeoes ul {
-    list-style-type: none;
-    align-items: center;
+
+  p {
+    line-height: 1.5;
+    display: flex;
   }
-  
-  .time-campeao {
-    display: inline-block;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .nome-time {
-    text-align: center;
-    background-color: rgb(134, 134, 202);
-    width: 96%;
-    height: 30%;
-    margin-top: 15%;
-    border: 2px solid purple;
-    margin-left: 1.8%;
-    border-radius: 15px;
-    display: block;
-    margin-top: 5px;
+
+  #championsInfo {
+    max-width: 600px;
   }
